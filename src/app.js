@@ -49,7 +49,7 @@ app.get('/weather',(req,res)=>{
             if(error){
                 return res.send(error)
             }
-            res.send(data)
+            return res.send(data)
         })
     }
 })

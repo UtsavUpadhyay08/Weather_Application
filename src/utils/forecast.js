@@ -8,9 +8,13 @@ const forecast = (address, callback)=>{
         }else if(body.error){
             callback({error:"Unable to find location"},undefined)
         }else{
-            callback(undefined,`The the weather is ${body.current.condition.text} and the chances of rain is ${body.current.precip_mm}.`)
+            callback(undefined,{
+                text: body.current.condition.text,
+                precip: body.current.precip_mm
+            })
         }
     })
 }
+
 
 module.exports= forecast
